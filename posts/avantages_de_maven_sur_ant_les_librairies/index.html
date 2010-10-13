@@ -1,0 +1,186 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <title>davidB'log - Avantages de maven sur ant : les dependances</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="Generator" CONTENT="nanoc"/>
+    <meta name="Publisher" content="Alchim31"/>
+    <meta name="author" content="" />
+    <meta name="copyright" content="" />
+    <link rel="stylesheet" type="text/css" href="/assets/style/screen.css" media="screen, projection"/>
+    <link rel="stylesheet" type="text/css" href="/assets/style/print.css" media="print"/>
+    <link rel="stylesheet" type="text/css" href="/assets/style/custom.css" media="screen, projection"/>
+    <!--[if IE]>
+     <link rel="stylesheet" type="text/css" href="/assets/style/ie.css" media="screen, projection"/>
+     <script defer type="text/javascript" src="/assets/js/pngfix.js"></script>
+   <![endif]-->
+    <link rel="alternate" type="application/rss+xml" title="davidB'log" HREF="http://feeds.feedburner.com/davidB_log"/>
+    <!--link rel="alternate" type="application/atom+xml" title="davidB'log" HREF="/atom.xml"/-->
+    <meta name="robots" content="all, follow" />
+    <!--meta name="language" content="en" /-->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-18659445-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>     
+  </head>
+  <body class="bp two-col">
+    <div id="container">
+      <div id="header">
+        <div class="title">davidB'log</div>
+        
+        <ul id="nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/articles/">Articles</a></li>
+          <!--li><a href="/projects/">Projects</a></li-->
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </div>
+      <div id="content">
+        <h1>Avantages de maven sur ant : les dependances</h1>
+<div class="publishInfo">2006/12/02 | Published in <a href="http://technorati.com/tag/tools/maven" rel="tag">tools/maven</a></div>
+
+<div>
+  <div style="float: right; width: 42px; padding-right: 10px; margin: 0 0 0 10px;">
+    <script type="text/javascript">
+    <!--
+    var dzone_url = "http://dwayneb.free.fr/posts/avantages_de_maven_sur_ant_les_librairies/";
+    var dzone_title = "Avantages de maven sur ant : les dependances";
+    //var dzone_blurb = 'Building decent-sized applications requires layouts (unless you like pain), and the funny thing about layouts is that they&#8217;re tough&#8230;..real tough&#8230;&#8230;until you bother to actually understand them. The second funny thing about layouts...';
+    var dzone_style = '1';
+    //-->
+    </script>
+    <script language="javascript" src="http://widgets.dzone.com/widgets/zoneit.js"></script>
+  </div>
+
+  <p>Les dependances sont les objets jar, war, ejb,… necessaires a un projet pour etre compile, teste, execute,…</p>
+
+<p>J’aime (en tant qu’utilisateur d’un projet):</p>
+
+<ul>
+  <li>savoir qu’elle est la version de chaque dependance d’un framework ou d’une librairie que j’utilise</li>
+  <li>savoir ou servent les dependances (compilation, tests, execution, pour les outils de build,… optionnel)</li>
+</ul>
+
+<p>J’aime (en tant que developpeur d’un projet):</p>
+
+<ul>
+  <li>savoir qu’elle est la version de chaque dependence d’un projet.</li>
+  <li>separer les dependances suivant l’usage qui en est fait (compilation, execution, pour les outils de build,…)</li>
+  <li>la resolution des dependances indirectes (les dependances des dependances), ce qui evite d’aller a la “peche” comme souvent le cas lors de l’inclusion d’une librairie dans un projet ant (avec parfois des erreurs a l’execution). Cela peut alleger un projet car si une dependances indirecte n’est plus utilisees par une nouvelle version d’une dependance directe, alors elle sera automatiquement supprimees de la liste de toutes les dependances.</li>
+</ul>
+
+<p>Ces informations ou fonctions sont rarement presentent dans les projets base sur ant (et l’utilisation d’Ivy ne fait pas tout).</p>
+
+<h2 id="dependances-hors-projet">Dependances hors projet</h2>
+
+<p>Il est reproche par les utilisateurs de ant, que les projets maven ne contiennent pas leurs librairies (j’avais le meme point de vue). En quoi cela est-il genant ?</p>
+
+<p>Personnellement, j’utilise les jar des repositories public quand ils sont disponibles. Pour les indisponibles :</p>
+
+<ul>
+  <li>Si leur license ne permet la distribution sur un repository “public” (eg: driver jdbc Oracle, jta,…), alors je les <a href="/tips_inclure_un_jar_dans_un_projet_maven">inclue dans le projet</a>.</li>
+  <li>Si leur license permet la distribution, mais qu’il n’existe pas ou pas dans la version souhaitee, alors soit je l’inclue dans mon projet, soit je le publie dans un repository accessible  par les autres developpeurs/contributeurs et les utilisateurs (si mon projet ne les inclue pas la version distribue (ex: une librairie)). Dans le cas d’une version manquante, je peux contacte le mainteneur pour faire la mise a jour.</li>
+</ul>
+
+<h2 id="projet-ant-sans-dependances-incluses">Projet ant sans dependances incluses</h2>
+
+<p>Certains projets ant n’incluent pas leur dependances, mais font references a des jars externes:</p>
+
+<ul>
+  <li>par des chemins absolues :-/, ou relatif, (et c’est de nouveau la peche, surtout si les jars ne sont pas liste mais reference *.jar dans le build.xml)</li>
+  <li>qui sont dans un autre projet, ou qui sont generes par un autre projet . Et la cela devient infernal pour le contributeur qui doit aussi installer/comprendre le(s) autre(s) projet(s), et les placer dans les bons repertoires. Maven peut avoir le meme probleme avec les projets avec sous modules, mais cela reste limite, documente et suit une convention.</li>
+</ul>
+
+<p>En gros cela demande trop de travail pour le contributeur, qui va souvent abandonner, “forker”, juste prendre ce qui l’interresse,…</p>
+
+</div>
+<!--
+<div class="share">
+  <script type="text/javascript" src="http://w.sharethis.com/button/sharethis.js#publisher=6e34d60c-b14e-4c19-9b2f-7c35a9f0ab09&amp;type=website&amp;linkfg=%23a4282d"></script>
+  
+</div>
+-->
+
+<script>
+var idcomments_acct = 'e3d598aebabbaf4e96c6e81e7e5d84e6';
+var idcomments_post_id;// = "/posts/avantages_de_maven_sur_ant_les_librairies/";
+var idcomments_post_url;// = "http://dwayneb.free.fr/posts/avantages_de_maven_sur_ant_les_librairies/";
+</script>
+<span id="IDCommentsPostTitle" style="display:none"></span>
+<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+<!--script type="text/javascript" src="http://www.intensedebate.com/js/genericLinkWrapperV2.js"></script-->
+
+      </div>
+      <div id="sidebar">
+      <!--<img src="http://www.gravatar.com/avatar/1600be0eb76f419febc4184716300d63.png"/>-->
+      <ul>
+        <!--TODO li>search form</li-->
+        <li><a href="http://feeds.feedburner.com/davidB_log" type="application/rss+xml" rel="alternate"><img src="/assets/images/feed.png" alt="#">RSS Feed</a>
+        <li><div id="google_translate_element"></div><script>
+          function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+              pageLanguage: 'fr',
+              multilanguagePage: true
+            }, 'google_translate_element');
+          }
+          </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        </li>
+        <li>
+        <h2>Author</h2>
+        I'm a Java/Scala Freelance Developper...
+        <ul>
+        <li><a href="http://alchim31.net">Company : Alchim31</a></li>
+        <!--li><a href="/projects/">Projects</a></li-->
+        <li><a href="http://fr.linkedin.com/in/davidbernard31" ><img src="http://www.linkedin.com/img/webpromo/btn_viewmy_160x25.png" width="160" height="25" border="0" alt="View David Bernard's profile on LinkedIn"></a></li>
+        <!-- see https://www.ohloh.net/accounts/david_bernard_31/widgets -->
+        <!--li><a href='https://www.ohloh.net/accounts/71405?ref=Detailed'><img alt='Ohloh profile for david_bernard_31' height='35' src='https://www.ohloh.net/accounts/71405/widgets/account_detailed.gif' width='160' /></a></li-->
+        </ul>
+        <!-- see http://drnicjavascript.rubyforge.org/github_badge/ -->
+        <div id="github-badge"></div>
+        <!--
+        <script type="text/javascript" charset="utf-8">
+          GITHUB_USERNAME="davidB";
+        </script>
+        <script src="http://drnic.github.com/github-badges/dist/github-badge-launcher.js" type="text/javascript"></script>
+        -->
+        </li>
+        <li>
+          <h2>Recents post</h2>
+          <ul>
+          
+            <li><a href="http://dwayneb.free.fr/posts/lift_recapcha/">Lift : integrate ReCaptcha</a></li>
+          
+            <li><a href="http://dwayneb.free.fr/posts/scala_testing/">Scala, choosing a test lib</a></li>
+          
+            <li><a href="http://dwayneb.free.fr/posts/scala_sugar_parametrized_factory/">Scala, sugar in Java : make a type parametrized factory</a></li>
+          
+            <li><a href="http://dwayneb.free.fr/posts/url_java_quizz_kata_etc/">URL: Java Quizz, Kata, ...</a></li>
+          
+            <li><a href="http://dwayneb.free.fr/posts/scala_sugar_in_java_accessor/">Scala, sugar in Java : no longer stupid accessor</a></li>
+          
+          </ul>
+        </li>
+        <!--li><h2>Tags</h2>
+        </li-->
+        <!-- see https://widgets.amazon.com/ -->
+        <!--li><!-- wish list -- <SCRIPT charset="utf-8" type="text/javascript" src="http://ws.amazon.com/widgets/q?ServiceVersion=20070822&MarketPlace=US&ID=V20070822/US/widgetsamazon-20/8004/7994e956-d83a-4b1a-9dc2-bfc4153948d2"> </SCRIPT> <NOSCRIPT><A HREF="http://ws.amazon.com/widgets/q?ServiceVersion=20070822&MarketPlace=US&ID=V20070822%2FUS%2Fwidgetsamazon-20%2F8004%2F7994e956-d83a-4b1a-9dc2-bfc4153948d2&Operation=NoScript">Amazon.com Widgets</A></NOSCRIPT></li-->
+        <li><img src="http://www.eclipse.org/donate/images/friendslogo160.jpg"></li>
+        </ul>
+        <!--a href="http://intensedebate.com/?badge=small_grey&user=david_bernard" title="Go to IntenseDebate"><img src="http://s.intensedebate.com/images/intensedebate-badge-small_grey.png?=3" alt="Go to IntenseDebate" /></a-->
+      </div>
+      <div id="footer">
+        <div>powered by <a href="http://nanoc.stoneship.org/">nanoc</a></div>
+        <div>last site generation : Monday September 13, 2010 at 10:59:07 CEST</div>
+      </div>
+    </div>
+  </body>
+</html>

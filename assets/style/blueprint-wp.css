@@ -1,0 +1,411 @@
+/*-----------------------------------------------------------------------------
+    Blueprint-WP Theme
+    By: Joshua Sowin (fireandknowledge.org)
+-----------------------------------------------------------------------------*/
+/* line 6, content/assets/style/blueprint-wp.scss */
+body {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+/* Blueprint width setting */
+/*
+#container 	{ width: 820px; border-top: 3px #668040 solid; padding-top: 10px; }
+*/
+/* line 13, content/assets/style/blueprint-wp.scss */
+#page {
+  border-left: 1px solid #CCC;
+  border-right: 1px solid #CCC;
+  border-bottom: 1px solid #CCC;
+  margin-bottom: 20px;
+}
+
+/* line 20, content/assets/style/blueprint-wp.scss */
+blockquote {
+  font-style: normal;
+  padding: 0 0 0 0;
+  color: #000;
+  background: url("../images/quote.png") 0.5em top no-repeat;
+}
+
+/* line 27, content/assets/style/blueprint-wp.scss */
+a {
+  color: #3E4967;
+}
+
+/* line 28, content/assets/style/blueprint-wp.scss */
+a:hover {
+  color: #000;
+}
+
+/* line 29, content/assets/style/blueprint-wp.scss */
+blockquote p {
+  padding: 0 20px 0 30px;
+}
+
+/* line 30, content/assets/style/blueprint-wp.scss */
+hr {
+  background: #CCC;
+  height: 1px;
+}
+
+/* line 31, content/assets/style/blueprint-wp.scss */
+img {
+  margin: 0;
+}
+
+/* line 32, content/assets/style/blueprint-wp.scss */
+p img {
+  float: none;
+}
+
+/* line 33, content/assets/style/blueprint-wp.scss */
+a.button {
+  float: left;
+}
+
+/* Fix for buttons */
+/* line 34, content/assets/style/blueprint-wp.scss */
+input {
+  padding-left: 0;
+  border: 1px solid #CCCCCC;
+}
+
+/* line 35, content/assets/style/blueprint-wp.scss */
+ul {
+  margin-left: 15px;
+  list-style-type: none;
+}
+
+/* line 36, content/assets/style/blueprint-wp.scss */
+ul li {
+  padding: 2px 0 2px 9px;
+  background: url("../images/icons/bullet_square_grey.gif") left 5px no-repeat;
+}
+
+/* line 37, content/assets/style/blueprint-wp.scss */
+ol {
+  margin-left: 35px;
+}
+
+/* line 38, content/assets/style/blueprint-wp.scss */
+label {
+  font-weight: normal;
+}
+
+/* line 39, content/assets/style/blueprint-wp.scss */
+textarea {
+  height: 200px;
+  width: 500px;
+}
+
+/* line 40, content/assets/style/blueprint-wp.scss */
+.small {
+  font-size: .9em;
+}
+
+/* line 41, content/assets/style/blueprint-wp.scss */
+.nomargin {
+  margin: 0;
+}
+
+/* line 42, content/assets/style/blueprint-wp.scss */
+a.button, button {
+  font-weight: normal;
+}
+
+/* line 44, content/assets/style/blueprint-wp.scss */
+h3, h3 a {
+  font-size: 1.3em;
+  line-height: 1.2;
+  color: #3B4A25;
+  letter-spacing: 0px;
+  text-decoration: none;
+}
+
+/* line 52, content/assets/style/blueprint-wp.scss */
+#maincontent h2 {
+  color: #3B4A25;
+  border-bottom: 2px dotted #AAA;
+  margin-bottom: 15px;
+}
+
+/* line 53, content/assets/style/blueprint-wp.scss */
+h2 a {
+  color: #3B4A25;
+  text-decoration: none;
+}
+
+/* line 54, content/assets/style/blueprint-wp.scss */
+#maincontent .post h2 {
+  margin-bottom: 5px;
+}
+
+/* Padding inside columns */
+/* line 56, content/assets/style/blueprint-wp.scss */
+#maincontent .content {
+  padding: 25px 30px 20px 48px;
+}
+
+/* line 59, content/assets/style/blueprint-wp.scss */
+.navigation,
+.navigation a {
+  color: #AAA;
+}
+
+/* line 60, content/assets/style/blueprint-wp.scss */
+.alignright {
+  float: right;
+}
+
+/* line 61, content/assets/style/blueprint-wp.scss */
+.alignleft {
+  float: left;
+}
+
+/* line 63, content/assets/style/blueprint-wp.scss */
+.post {
+  margin-bottom: 25px;
+}
+
+/*-----------------------------------------------------------------------------
+    Header
+-----------------------------------------------------------------------------*/
+/* line 69, content/assets/style/blueprint-wp.scss */
+#header {
+  height: 89px;
+}
+
+/* line 73, content/assets/style/blueprint-wp.scss */
+#header h1, #header .description {
+  padding-left: 50px;
+  margin: 0;
+  line-height: 1em;
+}
+
+/* line 79, content/assets/style/blueprint-wp.scss */
+#maincontent, #sidebar {
+  padding: 0 0 20px 0;
+}
+
+/*-----------------------------------------------------------------------------
+    Navigation
+-----------------------------------------------------------------------------*/
+/* line 86, content/assets/style/blueprint-wp.scss */
+#nav, #subnav {
+  padding: 0;
+  background: #668040;
+  float: left;
+  width: 100%;
+  line-height: 1.5em;
+}
+
+/* line 89, content/assets/style/blueprint-wp.scss */
+#nav ul,
+#subnav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* line 92, content/assets/style/blueprint-wp.scss */
+#nav li,
+#subnav li {
+  margin: 0;
+  padding: 0;
+  float: left;
+  background-image: none;
+}
+
+/* line 95, content/assets/style/blueprint-wp.scss */
+#nav li a,
+#subnav li a {
+  color: #F2FFDF;
+  padding: 5px 15px;
+  float: left;
+  text-decoration: none;
+}
+
+/* line 98, content/assets/style/blueprint-wp.scss */
+#nav li.current_page_item a,
+#nav li a:hover {
+  background: #485A2D;
+  color: #F2FFDF;
+}
+
+/* line 100, content/assets/style/blueprint-wp.scss */
+#subnav {
+  background: #616161;
+}
+
+/* line 104, content/assets/style/blueprint-wp.scss */
+#nav li.current_page_item a,
+#subnav li.current_page_item a,
+#subnav li a:hover {
+  color: #F2FFDF;
+}
+
+/* line 106, content/assets/style/blueprint-wp.scss */
+#nav li.first a {
+  margin-left: 50px;
+}
+
+/*-------------------------------------------------------------------------
+    Navigation bar in posts (use main nav html inside a post)
+-------------------------------------------------------------------------*/
+/* line 112, content/assets/style/blueprint-wp.scss */
+.entry #nav .content {
+  padding: 0;
+  margin: auto;
+}
+
+/* line 117, content/assets/style/blueprint-wp.scss */
+.entry #nav {
+  margin-bottom: 15px;
+  background: #FFF;
+}
+
+/* line 123, content/assets/style/blueprint-wp.scss */
+.entry #nav li a {
+  color: #FFF;
+  border-right: 1px solid #AAA;
+  background: #666;
+}
+
+/* line 124, content/assets/style/blueprint-wp.scss */
+.entry #nav li.last a {
+  border-right: none;
+}
+
+/* line 125, content/assets/style/blueprint-wp.scss */
+.entry #nav li a:hover {
+  background: #333;
+  color: #FFF;
+}
+
+/*-----------------------------------------------------------------------------
+    Sidebar
+-----------------------------------------------------------------------------*/
+/* line 131, content/assets/style/blueprint-wp.scss */
+#page {
+  background: url("../images/sidebar_bg.gif") right repeat-y;
+  /* fake bg */
+}
+
+/* line 132, content/assets/style/blueprint-wp.scss */
+#sidebar {
+  margin-left: 8px;
+  background-color: #cecef2;
+  border: 1px solid #e0cef2;
+  /* lets us have border */
+}
+
+/* line 133, content/assets/style/blueprint-wp.scss */
+#sidebar h2 {
+  font-size: 1.3em;
+  line-height: 1.2;
+}
+
+/* line 136, content/assets/style/blueprint-wp.scss */
+#sidebar ul, #sidebar ul ol {
+  margin: 0;
+  padding: 25px 20px 0 20px;
+}
+
+/* line 141, content/assets/style/blueprint-wp.scss */
+#sidebar ul li {
+  padding: 0;
+}
+
+/* line 143, content/assets/style/blueprint-wp.scss */
+#sidebar ul li ul {
+  padding-top: 0;
+}
+
+/* line 145, content/assets/style/blueprint-wp.scss */
+#sidebar ul li ul li {
+  margin: 0 0 0 -18px;
+  padding: 2px 0 2px 9px;
+  background: url("../images/icons/bullet_square_grey.gif") left 3px no-repeat;
+  font-size: 0.9em;
+}
+
+/* line 152, content/assets/style/blueprint-wp.scss */
+.feedlink {
+  padding: 2px 0 2px 20px;
+  background: url("../images/icons/feed_small.png") left center no-repeat;
+}
+
+/* line 157, content/assets/style/blueprint-wp.scss */
+#sidebar ul li, #sidebar ul li#subscribe ul li {
+  list-style-type: none;
+  background: none;
+  margin-bottom: 20px;
+}
+
+/* line 163, content/assets/style/blueprint-wp.scss */
+#sidebar ul li#subscribe ul li {
+  margin: 0 0 0 -30px;
+}
+
+/* Hide search from sidebar */
+/* line 166, content/assets/style/blueprint-wp.scss */
+#sidebar #search {
+  display: none;
+}
+
+/*-----------------------------------------------------------------------------
+    Footer
+-----------------------------------------------------------------------------*/
+/* line 172, content/assets/style/blueprint-wp.scss */
+#footer {
+  text-align: center;
+  font-size: .9em;
+  margin: 0;
+}
+
+/* line 174, content/assets/style/blueprint-wp.scss */
+#footer a {
+  text-decoration: none;
+}
+
+/*-----------------------------------------------------------------------------
+    Search
+-----------------------------------------------------------------------------*/
+/* line 180, content/assets/style/blueprint-wp.scss */
+#search {
+  float: right;
+}
+
+/* line 181, content/assets/style/blueprint-wp.scss */
+#search #s {
+  background: transparent url("../images/icons/search_grey.gif") 0px center no-repeat;
+  padding: 2px 0 2px 17px;
+  width: 135px;
+  color: #CCCCCC;
+  font-size: 0.9em;
+  margin-right: 20px;
+}
+
+/* line 183, content/assets/style/blueprint-wp.scss */
+#search #s:hover {
+  color: #000;
+}
+
+/* line 184, content/assets/style/blueprint-wp.scss */
+.search-excerpt {
+  margin: 0;
+}
+
+/*-----------------------------------------------------------------------------
+    Comments
+-----------------------------------------------------------------------------*/
+/* line 191, content/assets/style/blueprint-wp.scss */
+.commentlist li {
+  padding: 8px 15px;
+}
+
+/* line 192, content/assets/style/blueprint-wp.scss */
+.comments-alt {
+  background: #EEE;
+}

@@ -1,0 +1,185 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <title>davidB'log - Tips: inclure un jar dans un projet maven</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="Generator" CONTENT="nanoc"/>
+    <meta name="Publisher" content="Alchim31"/>
+    <meta name="author" content="" />
+    <meta name="copyright" content="" />
+    <link rel="stylesheet" type="text/css" href="/assets/style/screen.css" media="screen, projection"/>
+    <link rel="stylesheet" type="text/css" href="/assets/style/print.css" media="print"/>
+    <link rel="stylesheet" type="text/css" href="/assets/style/custom.css" media="screen, projection"/>
+    <!--[if IE]>
+     <link rel="stylesheet" type="text/css" href="/assets/style/ie.css" media="screen, projection"/>
+     <script defer type="text/javascript" src="/assets/js/pngfix.js"></script>
+   <![endif]-->
+    <link rel="alternate" type="application/rss+xml" title="davidB'log" HREF="http://feeds.feedburner.com/davidB_log"/>
+    <!--link rel="alternate" type="application/atom+xml" title="davidB'log" HREF="/atom.xml"/-->
+    <meta name="robots" content="all, follow" />
+    <!--meta name="language" content="en" /-->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-18659445-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>     
+  </head>
+  <body class="bp two-col">
+    <div id="container">
+      <div id="header">
+        <div class="title">davidB'log</div>
+        
+        <ul id="nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/articles/">Articles</a></li>
+          <!--li><a href="/projects/">Projects</a></li-->
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </div>
+      <div id="content">
+        <h1>Tips: inclure un jar dans un projet maven</h1>
+<div class="publishInfo">2006/12/04 | Published in <a href="http://technorati.com/tag/tools/maven" rel="tag">tools/maven</a></div>
+
+<div>
+  <div style="float: right; width: 42px; padding-right: 10px; margin: 0 0 0 10px;">
+    <script type="text/javascript">
+    <!--
+    var dzone_url = "http://dwayneb.free.fr/posts/tips_inclure_un_jar_dans_un_projet_maven/";
+    var dzone_title = "Tips: inclure un jar dans un projet maven";
+    //var dzone_blurb = 'Building decent-sized applications requires layouts (unless you like pain), and the funny thing about layouts is that they&#8217;re tough&#8230;..real tough&#8230;&#8230;until you bother to actually understand them. The second funny thing about layouts...';
+    var dzone_style = '1';
+    //-->
+    </script>
+    <script language="javascript" src="http://widgets.dzone.com/widgets/zoneit.js"></script>
+  </div>
+
+  <p>Plutot que de placer les jar (war,…) dans un sous repertoire lib du projet et de les referencer directement dans le pom.xml (avec le scope system). Je les place dans un sous repertoire <code>repo-add</code> (au meme niveau que <code>src</code>):</p>
+
+<pre><code>[project]
+  |-- pom.xml
+  |-- src/
+  |    |-- ...
+  |-- repo-add/
+       |-- install.bat
+       |-- install.sh
+       |-- foo-1.0.jar
+       |-- bar-2.4.jar
+       |-- bar-2.4.pom
+</code></pre>
+
+<p>Si je ne veux pas que maven cree des fichiers pom par defaut, je les places aussi dans le repertoire (si je veux ajouter des informations au jar (description, dependances,…)).</p>
+
+<p>Les autres developpeurs utilisent (executent) le script install, qui fait l’installation des artefacts dans leur repository local (tout les utilisateurs de maven en ont un). Ces dependances peuvent ainsi etre referencees dans le pom.xml (du projet) comme les autres dependances. Cela a pour avantages de :</p>
+
+<ul>
+  <li>conserver dans le pom.xml l’information sur le scope reel du jar (compile, test, runtime, provided)</li>
+  <li>de maintenir une coherence de classement pour ces dependances entres plusieurs projets</li>
+  <li>
+    <p>de pouvoir les supprimer du repertoire repo-add lorsqu’elles deviennent disponible dans un repository public.</p>
+
+    <p>rem ex de script install.bat
+  call mvn install:install-file -Dfile=jta.jar -DgroupId=javax.transaction -DartifactId=jta -Dversion=1.0.1B -Dpackaging=jar -DgeneratePom=true
+  call mvn install:install-file -Dfile=jms-1.0.2b.jar -DgroupId=javax.jms -DartifactId=jms -Dversion=1.0.2b -Dpackaging=jar -DgeneratePom=true</p>
+
+    <p>call mvn install:install-file -Dfile=ojdbc14-10.2.0.2.jar -DgroupId=com.oracle -DartifactId=ojdbc14 -Dversion=10.2.0.2 -Dpackaging=jar
+  call mvn install:install-file -Dfile=ojdbc14-10.2.0.2.pom -DgroupId=com.oracle -DartifactId=ojdbc14 -Dversion=10.2.0.2 -Dpackaging=pom</p>
+
+    <p># ex de script install.sh
+  mvn install:install-file -Dfile=jta.jar -DgroupId=javax.transaction -DartifactId=jta -Dversion=1.0.1B -Dpackaging=jar -DgeneratePom=true
+  mvn install:install-file -Dfile=jms-1.0.2b.jar -DgroupId=javax.jms -DartifactId=jms -Dversion=1.0.2b -Dpackaging=jar -DgeneratePom=true</p>
+
+    <p>mvn install:install-file -Dfile=ojdbc14-10.2.0.2.jar -DgroupId=com.oracle -DartifactId=ojdbc14 -Dversion=10.2.0.2 -Dpackaging=jar
+  mvn install:install-file -Dfile=ojdbc14-10.2.0.2.pom -DgroupId=com.oracle -DartifactId=ojdbc14 -Dversion=10.2.0.2 -Dpackaging=pom</p>
+  </li>
+</ul>
+
+</div>
+<!--
+<div class="share">
+  <script type="text/javascript" src="http://w.sharethis.com/button/sharethis.js#publisher=6e34d60c-b14e-4c19-9b2f-7c35a9f0ab09&amp;type=website&amp;linkfg=%23a4282d"></script>
+  
+</div>
+-->
+
+<script>
+var idcomments_acct = 'e3d598aebabbaf4e96c6e81e7e5d84e6';
+var idcomments_post_id;// = "/posts/tips_inclure_un_jar_dans_un_projet_maven/";
+var idcomments_post_url;// = "http://dwayneb.free.fr/posts/tips_inclure_un_jar_dans_un_projet_maven/";
+</script>
+<span id="IDCommentsPostTitle" style="display:none"></span>
+<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+<!--script type="text/javascript" src="http://www.intensedebate.com/js/genericLinkWrapperV2.js"></script-->
+
+      </div>
+      <div id="sidebar">
+      <!--<img src="http://www.gravatar.com/avatar/1600be0eb76f419febc4184716300d63.png"/>-->
+      <ul>
+        <!--TODO li>search form</li-->
+        <li><a href="http://feeds.feedburner.com/davidB_log" type="application/rss+xml" rel="alternate"><img src="/assets/images/feed.png" alt="#">RSS Feed</a>
+        <li><div id="google_translate_element"></div><script>
+          function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+              pageLanguage: 'fr',
+              multilanguagePage: true
+            }, 'google_translate_element');
+          }
+          </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        </li>
+        <li>
+        <h2>Author</h2>
+        I'm a Java/Scala Freelance Developper...
+        <ul>
+        <li><a href="http://alchim31.net">Company : Alchim31</a></li>
+        <!--li><a href="/projects/">Projects</a></li-->
+        <li><a href="http://fr.linkedin.com/in/davidbernard31" ><img src="http://www.linkedin.com/img/webpromo/btn_viewmy_160x25.png" width="160" height="25" border="0" alt="View David Bernard's profile on LinkedIn"></a></li>
+        <!-- see https://www.ohloh.net/accounts/david_bernard_31/widgets -->
+        <!--li><a href='https://www.ohloh.net/accounts/71405?ref=Detailed'><img alt='Ohloh profile for david_bernard_31' height='35' src='https://www.ohloh.net/accounts/71405/widgets/account_detailed.gif' width='160' /></a></li-->
+        </ul>
+        <!-- see http://drnicjavascript.rubyforge.org/github_badge/ -->
+        <div id="github-badge"></div>
+        <!--
+        <script type="text/javascript" charset="utf-8">
+          GITHUB_USERNAME="davidB";
+        </script>
+        <script src="http://drnic.github.com/github-badges/dist/github-badge-launcher.js" type="text/javascript"></script>
+        -->
+        </li>
+        <li>
+          <h2>Recents post</h2>
+          <ul>
+          
+            <li><a href="http://dwayneb.free.fr/posts/lift_recapcha/">Lift : integrate ReCaptcha</a></li>
+          
+            <li><a href="http://dwayneb.free.fr/posts/scala_testing/">Scala, choosing a test lib</a></li>
+          
+            <li><a href="http://dwayneb.free.fr/posts/scala_sugar_parametrized_factory/">Scala, sugar in Java : make a type parametrized factory</a></li>
+          
+            <li><a href="http://dwayneb.free.fr/posts/url_java_quizz_kata_etc/">URL: Java Quizz, Kata, ...</a></li>
+          
+            <li><a href="http://dwayneb.free.fr/posts/scala_sugar_in_java_accessor/">Scala, sugar in Java : no longer stupid accessor</a></li>
+          
+          </ul>
+        </li>
+        <!--li><h2>Tags</h2>
+        </li-->
+        <!-- see https://widgets.amazon.com/ -->
+        <!--li><!-- wish list -- <SCRIPT charset="utf-8" type="text/javascript" src="http://ws.amazon.com/widgets/q?ServiceVersion=20070822&MarketPlace=US&ID=V20070822/US/widgetsamazon-20/8004/7994e956-d83a-4b1a-9dc2-bfc4153948d2"> </SCRIPT> <NOSCRIPT><A HREF="http://ws.amazon.com/widgets/q?ServiceVersion=20070822&MarketPlace=US&ID=V20070822%2FUS%2Fwidgetsamazon-20%2F8004%2F7994e956-d83a-4b1a-9dc2-bfc4153948d2&Operation=NoScript">Amazon.com Widgets</A></NOSCRIPT></li-->
+        <li><img src="http://www.eclipse.org/donate/images/friendslogo160.jpg"></li>
+        </ul>
+        <!--a href="http://intensedebate.com/?badge=small_grey&user=david_bernard" title="Go to IntenseDebate"><img src="http://s.intensedebate.com/images/intensedebate-badge-small_grey.png?=3" alt="Go to IntenseDebate" /></a-->
+      </div>
+      <div id="footer">
+        <div>powered by <a href="http://nanoc.stoneship.org/">nanoc</a></div>
+        <div>last site generation : Monday September 13, 2010 at 10:56:44 CEST</div>
+      </div>
+    </div>
+  </body>
+</html>

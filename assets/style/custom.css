@@ -1,0 +1,319 @@
+/* Color */
+/*$nav-bg-color: #8686bf;*/
+/* line 8, content/assets/style/custom.scss */
+.title {
+  font-size: 200%;
+  color: #3e3e59;
+  border-top: 2px solid #3e3e59;
+}
+
+/* line 13, content/assets/style/custom.scss */
+blockquote {
+  font-style: normal;
+  padding: 0 0 0 0;
+  color: #000;
+  background: url("../images/quote.png") 0.5em top no-repeat;
+}
+
+/* line 20, content/assets/style/custom.scss */
+a {
+  color: #3E4967;
+}
+
+/* line 21, content/assets/style/custom.scss */
+a:hover {
+  color: #000;
+}
+
+/* line 22, content/assets/style/custom.scss */
+blockquote p {
+  padding: 0 20px 0 30px;
+}
+
+/* line 23, content/assets/style/custom.scss */
+hr {
+  background: #CCC;
+  height: 1px;
+}
+
+/* line 24, content/assets/style/custom.scss */
+img {
+  margin: 0;
+}
+
+/* line 25, content/assets/style/custom.scss */
+p img {
+  float: none;
+}
+
+/* line 26, content/assets/style/custom.scss */
+a.button {
+  float: left;
+}
+
+/* Fix for buttons */
+/* line 27, content/assets/style/custom.scss */
+input {
+  padding-left: 0;
+  border: 1px solid #CCCCCC;
+}
+
+/* line 28, content/assets/style/custom.scss */
+ul {
+  margin-left: 15px;
+}
+
+/* line 29, content/assets/style/custom.scss */
+ul li {
+  padding: 2px 0 2px 9px;
+}
+
+/* line 30, content/assets/style/custom.scss */
+ol {
+  margin-left: 35px;
+}
+
+/* line 31, content/assets/style/custom.scss */
+label {
+  font-weight: normal;
+}
+
+/* line 32, content/assets/style/custom.scss */
+textarea {
+  height: 200px;
+  width: 500px;
+}
+
+/* line 33, content/assets/style/custom.scss */
+.small {
+  font-size: .9em;
+}
+
+/* line 34, content/assets/style/custom.scss */
+.nomargin {
+  margin: 0;
+}
+
+/* line 35, content/assets/style/custom.scss */
+a.button, button {
+  font-weight: normal;
+}
+
+/* line 37, content/assets/style/custom.scss */
+#content {
+  background-color: white;
+  background-image: -webkit-gradient(linear, 0 0, 0 200, from(#eeeeee), to(white));
+  margin-bottom: 20px;
+  /*padding: 25px 30px 20px 48px;*/
+}
+/* line 43, content/assets/style/custom.scss */
+#content h1, #content h2, #content h3, #content h1 a, #content h2 a, #content h3 a {
+  color: #3e3e59;
+  text-decoration: none;
+}
+/* line 47, content/assets/style/custom.scss */
+#content h1 {
+  border-bottom: 2px dotted #AAA;
+  margin-bottom: 15px;
+  font-family: Perpetua, Baskerville, 'Big Caslon', 'Palatino Linotype', Palatino, 'URW Palladio L', 'Nimbus Roman No9 L', serif;
+  font-weight: bold;
+  line-height: 1,5em;
+  text-shadow: #888 1px 1px 2px;
+}
+/* line 55, content/assets/style/custom.scss */
+#content h3, #content h3 a {
+  font-size: 1.3em;
+  line-height: 1.2;
+  letter-spacing: 0px;
+}
+/* line 60, content/assets/style/custom.scss */
+#content h2 {
+  margin-bottom: 5px;
+}
+/* line 63, content/assets/style/custom.scss */
+#content pre {
+  border-bottom: 1px solid green;
+  border-top: 1px solid green;
+  background-color: #E6E8E9;
+  margin: 15px 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+/* line 71, content/assets/style/custom.scss */
+#content pre code {
+  font-family: 'Lucida Console', monospace;
+  color: black;
+  overflow: visible;
+  padding: 5px;
+  text-align: left;
+  font-weight: normal;
+}
+
+/*-----------------------------------------------------------------------------
+    Header
+-----------------------------------------------------------------------------*/
+/* line 88, content/assets/style/custom.scss */
+#header {
+  height: 89px;
+}
+
+/* line 92, content/assets/style/custom.scss */
+#header h1, #header .description {
+  padding-left: 50px;
+  margin: 0;
+  line-height: 1em;
+}
+
+/*-----------------------------------------------------------------------------
+    Navigation
+-----------------------------------------------------------------------------*/
+/* line 103, content/assets/style/custom.scss */
+#nav {
+  padding: 0;
+  margin: 0;
+  background: #3e3e59;
+  float: left;
+  width: 100%;
+  line-height: 1.5em;
+  border-bottom: 1px solid #8686bf;
+  border-left: 1px solid #8686bf;
+}
+
+/* line 109, content/assets/style/custom.scss */
+#nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* line 111, content/assets/style/custom.scss */
+#nav li {
+  margin: 0;
+  padding: 0;
+  float: left;
+  background-image: none;
+}
+
+/* line 113, content/assets/style/custom.scss */
+#nav li a {
+  color: #f2ffdf;
+  padding: 5px 15px;
+  float: left;
+  text-decoration: none;
+}
+
+/* line 116, content/assets/style/custom.scss */
+#nav li.current_page_item a,
+#nav li a:hover {
+  background: #3e3e59;
+  color: #f2ffdf;
+}
+
+/* line 118, content/assets/style/custom.scss */
+#nav li.current_page_item a {
+  color: #f2ffdf;
+}
+
+/*-----------------------------------------------------------------------------
+    Sidebar
+-----------------------------------------------------------------------------*/
+/* line 123, content/assets/style/custom.scss */
+#sidebar {
+  padding: 0 0 20px 0;
+  background-color: #e5e5ff;
+}
+/* line 127, content/assets/style/custom.scss */
+#sidebar a {
+  text-decoration: none;
+}
+/* line 130, content/assets/style/custom.scss */
+#sidebar h2 {
+  font-size: 1.3em;
+  line-height: 1.2;
+}
+/* line 136, content/assets/style/custom.scss */
+#sidebar ul {
+  margin: 0;
+  padding: 25px 20px 0 20px;
+  list-style-type: none;
+}
+/* line 141, content/assets/style/custom.scss */
+#sidebar ul li {
+  padding: 0;
+  background: none;
+  margin-bottom: 20px;
+}
+/* line 147, content/assets/style/custom.scss */
+#sidebar ul ul {
+  padding-top: 0;
+  list-style-type: none;
+}
+/* line 151, content/assets/style/custom.scss */
+#sidebar ul ul li {
+  margin: 0 0 0 -18px;
+  padding: 2px 0 2px 9px;
+  /*background: url('../images/icons/bullet_square_grey.gif') left 3px no-repeat;*/
+  font-size: 0.9em;
+}
+
+/* line 162, content/assets/style/custom.scss */
+.feedlink {
+  padding: 2px 0 2px 20px;
+  background: url("../images/icons/feed_small.png") left center no-repeat;
+}
+
+/*-----------------------------------------------------------------------------
+    Footer
+-----------------------------------------------------------------------------*/
+/* line 172, content/assets/style/custom.scss */
+#footer {
+  text-align: center;
+  font-size: .9em;
+  margin: 0;
+}
+
+/* line 174, content/assets/style/custom.scss */
+#footer a {
+  text-decoration: none;
+}
+
+/*-----------------------------------------------------------------------------
+    Search
+-----------------------------------------------------------------------------*/
+/* line 180, content/assets/style/custom.scss */
+#search {
+  float: right;
+}
+
+/* line 181, content/assets/style/custom.scss */
+#search #s {
+  background: transparent url("../images/icons/search_grey.gif") 0px center no-repeat;
+  padding: 2px 0 2px 17px;
+  width: 135px;
+  color: #CCCCCC;
+  font-size: 0.9em;
+  margin-right: 20px;
+}
+
+/* line 183, content/assets/style/custom.scss */
+#search #s:hover {
+  color: #000;
+}
+
+/* line 184, content/assets/style/custom.scss */
+.search-excerpt {
+  margin: 0;
+}
+
+/*-----------------------------------------------------------------------------
+    Comments
+-----------------------------------------------------------------------------*/
+/*-----------------------------------------------------------------------------
+    Posts
+    @see http://css.maxdesign.com.au/listamatic/horizontal32.htm
+-----------------------------------------------------------------------------*/
+/* line 195, content/assets/style/custom.scss */
+.publishInfo {
+  font-size: 0.8em;
+  padding-bottom: 1em;
+}

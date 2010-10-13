@@ -1,0 +1,391 @@
+/*-----------------------------------------------------------------------------
+	Main Stuff
+	
+	
+	Theme colors:
+	#668040
+	#485A2D
+	#F2FFDF
+	#E6FFBF
+-----------------------------------------------------------------------------*/
+/* line 12, content/assets/style/blueprint-wp_grey_bg.scss */
+body {
+  margin-bottom: 0;
+  margin-top: 0;
+  background-color: #F2F2F2;
+}
+
+/* line 14, content/assets/style/blueprint-wp_grey_bg.scss */
+.container {
+  width: 820px;
+  /*border-top: 3px #7B0F0F solid;*/
+  margin-top: 15px;
+  background-color: #FFF;
+}
+
+/* line 21, content/assets/style/blueprint-wp_grey_bg.scss */
+#page {
+  border-left: 1px solid #CCC;
+  border-right: 1px solid #CCC;
+  border-bottom: 1px solid #CCC;
+  float: left;
+  margin-bottom: 20px;
+}
+
+/* line 29, content/assets/style/blueprint-wp_grey_bg.scss */
+blockquote {
+  font-style: normal;
+  padding: 0 0 0 0;
+  color: #000;
+  background: url("../images/quote.png") 0.5em top no-repeat;
+}
+
+/* line 36, content/assets/style/blueprint-wp_grey_bg.scss */
+a {
+  color: #00487D;
+}
+
+/* line 37, content/assets/style/blueprint-wp_grey_bg.scss */
+a:hover {
+  color: #7B0F0F;
+}
+
+/* line 38, content/assets/style/blueprint-wp_grey_bg.scss */
+blockquote p {
+  padding: 0 20px 0 30px;
+}
+
+/* line 39, content/assets/style/blueprint-wp_grey_bg.scss */
+hr {
+  background: #CCC;
+  height: 1px;
+}
+
+/* line 40, content/assets/style/blueprint-wp_grey_bg.scss */
+img {
+  margin: 0;
+}
+
+/* line 41, content/assets/style/blueprint-wp_grey_bg.scss */
+p img {
+  float: none;
+}
+
+/* line 42, content/assets/style/blueprint-wp_grey_bg.scss */
+input {
+  padding-left: 0;
+  border: 1px solid #CCCCCC;
+}
+
+/* line 43, content/assets/style/blueprint-wp_grey_bg.scss */
+ul {
+  margin-left: 20px;
+  padding-left: 0;
+}
+
+/* line 44, content/assets/style/blueprint-wp_grey_bg.scss */
+label {
+  font-weight: normal;
+}
+
+/* line 45, content/assets/style/blueprint-wp_grey_bg.scss */
+textarea {
+  height: 200px;
+  width: 500px;
+}
+
+/* line 46, content/assets/style/blueprint-wp_grey_bg.scss */
+.small {
+  font-size: .9em;
+}
+
+/* line 47, content/assets/style/blueprint-wp_grey_bg.scss */
+.nomargin {
+  margin: 0;
+}
+
+/* line 49, content/assets/style/blueprint-wp_grey_bg.scss */
+h2 {
+  font-family: "Palatino", Georgia, serif;
+}
+
+/* line 51, content/assets/style/blueprint-wp_grey_bg.scss */
+h3, h3 a {
+  font-family: "Palatino", Georgia, serif;
+  font-size: 1.4em;
+  line-height: 1.2;
+  color: #7B0F0F;
+  /*	font-variant: small-caps;*/
+  letter-spacing: 0px;
+  text-decoration: none;
+}
+
+/* line 61, content/assets/style/blueprint-wp_grey_bg.scss */
+h2#quote, h2#latest {
+  margin-bottom: .5em;
+  color: #7B0F0F;
+}
+
+/* line 62, content/assets/style/blueprint-wp_grey_bg.scss */
+h2#latest {
+  margin-top: 1.5em;
+}
+
+/* line 64, content/assets/style/blueprint-wp_grey_bg.scss */
+#maincontent h2 {
+  border-bottom: 2px dotted #AAA;
+  margin-bottom: 15px;
+}
+
+/* line 65, content/assets/style/blueprint-wp_grey_bg.scss */
+#maincontent .content {
+  padding: 25px 30px 20px 48px;
+}
+
+/* Padding inside columns */
+/* line 68, content/assets/style/blueprint-wp_grey_bg.scss */
+.navigation,
+.navigation a {
+  color: #AAA;
+}
+
+/* line 69, content/assets/style/blueprint-wp_grey_bg.scss */
+.alignright {
+  float: right;
+}
+
+/* line 70, content/assets/style/blueprint-wp_grey_bg.scss */
+.alignleft {
+  float: left;
+}
+
+/*-----------------------------------------------------------------------------
+	Header
+-----------------------------------------------------------------------------*/
+/* line 76, content/assets/style/blueprint-wp_grey_bg.scss */
+#header h1 {
+  display: none;
+}
+
+/* line 77, content/assets/style/blueprint-wp_grey_bg.scss */
+#header a.logo {
+  float: left;
+  height: 89px;
+  width: 800px;
+}
+
+/* line 79, content/assets/style/blueprint-wp_grey_bg.scss */
+#header {
+  background: url("../images/logo.gif") 50px 17px no-repeat;
+  height: 79px;
+  width: 818px;
+  padding-top: 10px;
+  border-right: 1px solid #CCC;
+  border-left: 1px solid #CCC;
+  border-top: 3px solid #7B0F0F;
+}
+
+/* line 89, content/assets/style/blueprint-wp_grey_bg.scss */
+#header .description {
+  display: none;
+}
+
+/* line 91, content/assets/style/blueprint-wp_grey_bg.scss */
+#maincontent, #sidebar {
+  padding: 0 0 20px 0;
+}
+
+/*-----------------------------------------------------------------------------
+	Sidebar
+-----------------------------------------------------------------------------*/
+/* line 97, content/assets/style/blueprint-wp_grey_bg.scss */
+#page {
+  background: url("../images/sidebar_bg.gif") right repeat-y;
+  /* fake bg */
+}
+
+/* line 98, content/assets/style/blueprint-wp_grey_bg.scss */
+#sidebar {
+  margin-left: 8px;
+  /* lets us have border */
+}
+
+/* line 99, content/assets/style/blueprint-wp_grey_bg.scss */
+#sidebar h2 {
+  font-size: 1.3em;
+  line-height: 1.2;
+}
+
+/* line 102, content/assets/style/blueprint-wp_grey_bg.scss */
+#sidebar ul, #sidebar ul ol {
+  margin: 0;
+  padding: 25px 20px 0 20px;
+}
+
+/* line 107, content/assets/style/blueprint-wp_grey_bg.scss */
+#sidebar ul li ul {
+  padding-top: 0;
+}
+
+/* line 109, content/assets/style/blueprint-wp_grey_bg.scss */
+#sidebar ul li ul li {
+  margin: 0 0 0 -18px;
+  padding: 2px 0 2px 9px;
+  background: url("../images/icons/bullet_square_grey.gif") left 3px no-repeat;
+  font-size: 0.9em;
+}
+
+/* About */
+/* line 117, content/assets/style/blueprint-wp_grey_bg.scss */
+#text-1 .textwidget {
+  font-size: 0.9em;
+}
+
+/* line 121, content/assets/style/blueprint-wp_grey_bg.scss */
+#sidebar #email {
+  background: white url("../images/icons/email.png") 2px center no-repeat;
+  padding: 2px 2px 2px 22px;
+  width: 100px;
+  color: #AAA;
+  font-size: 1em;
+  margin: 3px 0 5px 0;
+}
+
+/* line 124, content/assets/style/blueprint-wp_grey_bg.scss */
+.feedlink {
+  padding: 2px 0 2px 20px;
+  background: url("../images/icons/feed_small.png") left center no-repeat;
+}
+
+/* line 129, content/assets/style/blueprint-wp_grey_bg.scss */
+#sidebar ul li, #sidebar ul li#subscribe ul li {
+  list-style-type: none;
+  background: none;
+  margin-bottom: 20px;
+}
+
+/* line 135, content/assets/style/blueprint-wp_grey_bg.scss */
+#sidebar ul li#subscribe ul li {
+  margin: 0 0 0 -30px;
+}
+
+/*-----------------------------------------------------------------------------
+	Navigation
+-----------------------------------------------------------------------------*/
+/* line 141, content/assets/style/blueprint-wp_grey_bg.scss */
+#nav, #subnav {
+  padding: 0;
+  background: #7B0F0F;
+  float: left;
+  width: 100%;
+  line-height: 1.5em;
+}
+
+/* line 144, content/assets/style/blueprint-wp_grey_bg.scss */
+#nav ul,
+#subnav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* line 147, content/assets/style/blueprint-wp_grey_bg.scss */
+#nav li,
+#subnav li {
+  margin: 0;
+  padding: 0;
+  float: left;
+}
+
+/* line 150, content/assets/style/blueprint-wp_grey_bg.scss */
+#nav li a,
+#subnav li a {
+  color: #EEE;
+  padding: 5px 12px;
+  float: left;
+  text-decoration: none;
+}
+
+/* line 153, content/assets/style/blueprint-wp_grey_bg.scss */
+#nav li.current_page_item a,
+#nav li a:hover {
+  background: #560B0B;
+  color: #FFF;
+}
+
+/* line 155, content/assets/style/blueprint-wp_grey_bg.scss */
+#subnav {
+  background: #616161;
+}
+
+/* line 156, content/assets/style/blueprint-wp_grey_bg.scss */
+#subnav li a {
+  color: #FFF;
+}
+
+/* line 160, content/assets/style/blueprint-wp_grey_bg.scss */
+#nav li.current_page_item a,
+#subnav li.current_page_item a,
+#subnav li a:hover {
+  color: #EEE;
+}
+
+/* line 162, content/assets/style/blueprint-wp_grey_bg.scss */
+#nav li.first a {
+  margin-left: 50px;
+}
+
+/*-----------------------------------------------------------------------------
+	Search
+-----------------------------------------------------------------------------*/
+/* line 168, content/assets/style/blueprint-wp_grey_bg.scss */
+#search {
+  float: right;
+}
+
+/* line 171, content/assets/style/blueprint-wp_grey_bg.scss */
+#search #s {
+  background: transparent url("../images/icons/search_grey.gif") 0px center no-repeat;
+  padding: 2px 0 2px 17px;
+  width: 135px;
+  color: #CCCCCC;
+  font-size: 0.9em;
+  margin-right: 20px;
+}
+
+/* line 173, content/assets/style/blueprint-wp_grey_bg.scss */
+#search #s:hover {
+  color: #000;
+}
+
+/* line 176, content/assets/style/blueprint-wp_grey_bg.scss */
+.search-excerpt {
+  margin: 0;
+}
+
+/* line 178, content/assets/style/blueprint-wp_grey_bg.scss */
+#footer {
+  text-align: center;
+  font-size: .9em;
+  margin: 0;
+}
+
+/* line 181, content/assets/style/blueprint-wp_grey_bg.scss */
+#footer a,
+#footer .rpf {
+  text-decoration: none;
+  color: #CCC;
+}
+
+/*-----------------------------------------------------------------------------
+	Comments
+-----------------------------------------------------------------------------*/
+/* line 187, content/assets/style/blueprint-wp_grey_bg.scss */
+.commentlist li {
+  padding: 8px 15px;
+}
+
+/* line 188, content/assets/style/blueprint-wp_grey_bg.scss */
+.comments-alt {
+  background: #EEE;
+}

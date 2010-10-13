@@ -1,0 +1,333 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <title>davidB'log - displayCover</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="Generator" CONTENT="nanoc"/>
+    <meta name="Publisher" content="Alchim31"/>
+    <meta name="author" content="" />
+    <meta name="copyright" content="" />
+    <link rel="stylesheet" type="text/css" href="/assets/style/screen.css" media="screen, projection"/>
+    <link rel="stylesheet" type="text/css" href="/assets/style/print.css" media="print"/>
+    <link rel="stylesheet" type="text/css" href="/assets/style/custom.css" media="screen, projection"/>
+    <!--[if IE]>
+     <link rel="stylesheet" type="text/css" href="/assets/style/ie.css" media="screen, projection"/>
+     <script defer type="text/javascript" src="/assets/js/pngfix.js"></script>
+   <![endif]-->
+    <link rel="alternate" type="application/rss+xml" title="davidB'log" HREF="http://feeds.feedburner.com/davidB_log"/>
+    <!--link rel="alternate" type="application/atom+xml" title="davidB'log" HREF="/atom.xml"/-->
+    <meta name="robots" content="all, follow" />
+    <!--meta name="language" content="en" /-->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-18659445-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>     
+  </head>
+  <body class="bp two-col">
+    <div id="container">
+      <div id="header">
+        <div class="title">davidB'log</div>
+        
+        <ul id="nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/articles/">Articles</a></li>
+          <!--li><a href="/projects/">Projects</a></li-->
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </div>
+      <div id="content">
+        <h1>displayCover</h1>
+<div class="publishInfo">2007/08/30 | Published in <a href="http://technorati.com/tag/project" rel="tag">project</a></div>
+
+<div>
+  <div style="float: right; width: 42px; padding-right: 10px; margin: 0 0 0 10px;">
+    <script type="text/javascript">
+    <!--
+    var dzone_url = "http://dwayneb.free.fr/posts/displaycover/";
+    var dzone_title = "displayCover";
+    //var dzone_blurb = 'Building decent-sized applications requires layouts (unless you like pain), and the funny thing about layouts is that they&#8217;re tough&#8230;..real tough&#8230;&#8230;until you bother to actually understand them. The second funny thing about layouts...';
+    var dzone_style = '1';
+    //-->
+    </script>
+    <script language="javascript" src="http://widgets.dzone.com/widgets/zoneit.js"></script>
+  </div>
+
+  <p>“displayCover.py” est un petit script  qui permet d’associer une image  automatiquement a un dossier (et ses sous-dossiers).</p>
+
+<p>Suite aux billets <a href="http://www.greguti.com/petitlinux/index.php?entry=entry070828-172847">Apercu du dossier dans Nautilus</a> et <a href="http://blog.bmaron.net/index.php?post/2007/08/28/Apercu-du-dossier-dans-Konqueror">Aperçu du dossier dans Konqueror</a>, j’ai fait un petit script “displayCover.py” qui permet d’associer une image  automatiquement a un dossier (et ses sous-dossiers).</p>
+
+<p>Commentaires, suggestions, patch sont les bienvenues.</p>
+
+<pre><code>Usage: displayCover.py [options] dir
+
+Options:
+  --version             show program's version number and exit
+  -h, --help            show this help message and exit
+  -i ICONNAME, --icon=ICONNAME   filename of icon image (default: cover.png)
+  -f, --freedesktop     generate freedesktop, KDE .directory file (default: false)
+  -n, --nautilus        generate nautilus metafiles (default: false)
+  -r, --replaceAlways   always replace/update files (=&gt; no prompt) (default: false)
+  -k, --keepFile        never replace files (=&gt; no prompt) (default: false)
+  -q, --quiet           don't print status messages to stdout
+  -d, --debug           print debug messages to stdout
+</code></pre>
+
+<p>La version 0.3 (2007-08-30) demande par defaut s’il faut ou non remplacer les fichiers existants, mais possede les options ‘-r’ pour remplacer automatiquement sans confirmation et ‘-k’ pour ne jamais remplacer.</p>
+
+<h2 id="instructions">Instructions</h2>
+
+<pre><code># telecharger le script
+wget http://dwayneb.free.fr/download/displayCover.py
+# le rendre executable
+chmod +x displayCover.py
+# afficher l'aide
+./displayCover.py -h
+# generer les apercus pour freedesktop (inclue KDE) et nautilus
+./displayCover.py --freedesktop --nautilus mon_dossier
+# restart nautilus
+killall nautilus
+</code></pre>
+
+<h2 id="attention">ATTENTION</h2>
+
+<ul>
+  <li>displayCover remplace les fichiers .directory existants !!</li>
+  <li>displayCover met a jour les fichiers de propriete de nautilus existants !!</li>
+  <li>je n’ai pas KDE, donc je n’ai pas fait de test avec (un retour SVP)</li>
+</ul>
+
+<h2 id="commentaires-blog-precedent">Commentaires (Blog precedent)</h2>
+
+<hr />
+<p>From : Moe
+On Monday 10 September 2007, 04:07 AM</p>
+
+<p>Merci beaucoup pour ce script, c’est génial.</p>
+
+<p>Je croyais être tombé sur un bug alors que c’était Nautilus qui me jouait un tour : je croyais que –icon=”.cover.jpg” ne fonctionnait alors que c’était Nautilus qui ne mettait pas à jour l’affichage. Il fallait “simplement” redémarrer Nautilus après avoir changé le nom des miniatures.</p>
+
+<p>La taille des images jpg est très inférieure à celle des images png mais on perd les effets …</p>
+
+<p>Voici la commande que j’utilise : ./displayCover.py -r –icon=”.cover.jpg” –nautilus –select=first .</p>
+
+<hr />
+<p>From : Moe
+On Monday 10 September 2007, 04:12 AM</p>
+
+<p>Oups, j’ai oublié une question : est-il possible d’empêcher le script d’agir récursivement sur tous les sous-répertoires ? On pourrait définir max-depth= avec la valeur 0 pour ne créer des miniatures que des sous-répertoires présents dans le dossier courant.</p>
+
+<p>set offline - edit - delete</p>
+
+<hr />
+<p>From : David Bernard
+On Monday 10 September 2007, 09:28 AM</p>
+
+<p>Merci pour le retour. Je vais voir comment ajouter la possibilite de ne faire qu’un niveau de repertoire (ou mieux controler la navigation dans les repertoires).</p>
+
+<hr />
+<p>From : toto
+On Monday 15 October 2007, 11:33 AM</p>
+
+<p>Le top serait d’ajouter ce patch à Gnome Nautilus…</p>
+
+<hr />
+<p>From : David Bernard
+On Tuesday 16 October 2007, 09:38 AM
+Email :
+Site :
+@IP : 82.240.145.40</p>
+
+<p>@Toto</p>
+
+<p>Je n’ai pas compris ta derniere remarque. Il ne s’agit pas d’un patch. Que suggeres-tu exactement ?</p>
+
+<hr />
+<p>From : Panda
+On Thursday 17 April 2008, 02:10 PM</p>
+
+<p>Salut, merci pour ton script, mais comment revenir en arrière ?</p>
+
+<hr />
+<p>From : shenga
+On Monday 19 May 2008, 08:54 PM</p>
+
+<p>Merci beaucoup pour ce script ! Je n’ai pour l’instant relevé aucun bug .</p>
+
+<hr />
+<p>From : Esppat
+On Friday 18 July 2008, 09:23 PM</p>
+
+<p>J’ai l’erreur suivante après quelques instants :</p>
+
+<p>IOError: [Errno 36] File name too long: ‘… (je vous passe le nom en question, effectivement très long)’.</p>
+
+<p>Je reconnais que l’arborescence de mes fichiers est conséquentes, mais elle est importante pour moi (pour nous …).</p>
+
+<p>Une idée pour gérer ça ?</p>
+
+<p>Je profite de ce post pour indiquer une modif que j’ai faite dans la fonction defineCover :</p>
+
+<p>def defineCover(arg, dirname, names) :
+if dirname.find(“/.”,0) &gt;= 0 :
+return
+logging.info(“analyse %s”, dirname)</p>
+
+<p>J’ai ajouté la deuxième et troisième ligne pour éviter de traverser les répertoires cachés (ceux qui commencent par le caractère point ‘.’). Cette modification n’a pas d’incidence sur le bug mentionné.</p>
+
+<p>Merci !</p>
+
+<hr />
+<p>From : poncin
+On Tuesday 7 October 2008, 10:55 AM</p>
+
+<p>Salut,
+Il n’est jamais trop tard…
+MERCI pour ton script qui fonctionne nikel.
+J’ai juste du remplacer Cover par folder</p>
+
+<hr />
+<p>From : roumano
+On Wednesday 1 July 2009, 01:53 PM</p>
+
+<p>Bonjour,</p>
+
+<p>Sympa ton script !</p>
+
+<p>Quelques détails :</p>
+
+<ul>
+  <li>J’ai eu cette erreur (vu que sur un seul répertoire :</li>
+</ul>
+<p>2009-07-01 13:43:00,115 INFO create file : /home/roums/.nautilus/metafiles/file:%2F%2F%2Fhome%2FMp3%2F0%2520Roots%2FBen%2520Harper.xml
+Traceback (most recent call last):
+File “/usr/lib/python2.6/logging/<strong>init</strong>.py”, line 773, in emit
+stream.write(fs % msg.encode(“UTF-8”))
+UnicodeDecodeError: ‘ascii’ codec can’t decode byte 0xc3 in position 83: ordinal not in range(128)
+- Si je ne précise pas l’option –select=’first’ ou last, alors le script ne prend jamais l’un des fichier images de mes répertoires.
+- Cette option n’est pas affichier dans ./displayCover.py -h
+- ./displayCover.py –version renvoi version : 0.4.2
+alors que dans le fichier : CHANGELOG 0.5 : …
+- Au début, j’avait pas le programme convert alors que ton script tente de l’utiliser sans vérification ni pré-requis…</p>
+
+<hr />
+<p>From : dwayne
+On Wednesday 29 July 2009, 03:21 PM</p>
+
+<p>Merci, pour les retrours. desole pour le delai. Je ne regarde pas souvent mon feed RSS on mon blog (il faudrait que cela change ;) ).</p>
+
+<p>pour les bugs indiques, je vais voir si je peux les reproduire et les corriger pendant les vacances.</p>
+
+<hr />
+<p>From : Ptigrouick
+On Saturday 1 August 2009, 01:23 PM</p>
+
+<p>Bonjour,</p>
+
+<p>Je viens tout juste de découvrir ton script qui à l’air sympa. Je serai prêt à l’adopter, mais je me pose une dernière question. Les chemins des images étant stockées en absolus depuis la racine, que se passe-t-il si on déplace l’ensemble de la collection musicale. Faut-il réexécuter le script pour chacun des dossiers ? Mon souci c’est que les pochettes de mes albums ont toutes un nom différent (elles contiennent le nom de l’album). Impossible donc pour moi de renommer les pochettes récursivement en utilisant ta commande dans un script…</p>
+
+<hr />
+<p>From : Roumano
+On Sunday 8 November 2009, 03:13 PM</p>
+
+<p>Attention, ce script ne fonctionne plus avec gnome sur ubuntu 9.10 (gnome 2.28), ainsi que, surement, toutes les nouvelles distribution utilisant cette version de gnome,</p>
+
+<p>la raison : c’est gvfs qui gére les metadata maintenant :
+ubuntuforums.org/archive/…
+Et ici des infos pour modifier le script afin de le faire fonctionner avec cette nouvelle version :
+ubuntuforums.org/showthre…</p>
+
+<p>os.system(‘gvfs-set-attribute “‘+p+’” metadata::custom-icon “.folder_bg.thumbnail”’)</p>
+
+<p>Préviens-moi si tu met a jour ton script, je voudrait bien pouvoir l’utiliser.</p>
+
+</div>
+<!--
+<div class="share">
+  <script type="text/javascript" src="http://w.sharethis.com/button/sharethis.js#publisher=6e34d60c-b14e-4c19-9b2f-7c35a9f0ab09&amp;type=website&amp;linkfg=%23a4282d"></script>
+  
+</div>
+-->
+
+<script>
+var idcomments_acct = 'e3d598aebabbaf4e96c6e81e7e5d84e6';
+var idcomments_post_id;// = "/posts/displaycover/";
+var idcomments_post_url;// = "http://dwayneb.free.fr/posts/displaycover/";
+</script>
+<span id="IDCommentsPostTitle" style="display:none"></span>
+<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+<!--script type="text/javascript" src="http://www.intensedebate.com/js/genericLinkWrapperV2.js"></script-->
+
+      </div>
+      <div id="sidebar">
+      <!--<img src="http://www.gravatar.com/avatar/1600be0eb76f419febc4184716300d63.png"/>-->
+      <ul>
+        <!--TODO li>search form</li-->
+        <li><a href="http://feeds.feedburner.com/davidB_log" type="application/rss+xml" rel="alternate"><img src="/assets/images/feed.png" alt="#">RSS Feed</a>
+        <li><div id="google_translate_element"></div><script>
+          function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+              pageLanguage: 'fr',
+              multilanguagePage: true
+            }, 'google_translate_element');
+          }
+          </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        </li>
+        <li>
+        <h2>Author</h2>
+        I'm a Java/Scala Freelance Developper...
+        <ul>
+        <li><a href="http://alchim31.net">Company : Alchim31</a></li>
+        <!--li><a href="/projects/">Projects</a></li-->
+        <li><a href="http://fr.linkedin.com/in/davidbernard31" ><img src="http://www.linkedin.com/img/webpromo/btn_viewmy_160x25.png" width="160" height="25" border="0" alt="View David Bernard's profile on LinkedIn"></a></li>
+        <!-- see https://www.ohloh.net/accounts/david_bernard_31/widgets -->
+        <!--li><a href='https://www.ohloh.net/accounts/71405?ref=Detailed'><img alt='Ohloh profile for david_bernard_31' height='35' src='https://www.ohloh.net/accounts/71405/widgets/account_detailed.gif' width='160' /></a></li-->
+        </ul>
+        <!-- see http://drnicjavascript.rubyforge.org/github_badge/ -->
+        <div id="github-badge"></div>
+        <!--
+        <script type="text/javascript" charset="utf-8">
+          GITHUB_USERNAME="davidB";
+        </script>
+        <script src="http://drnic.github.com/github-badges/dist/github-badge-launcher.js" type="text/javascript"></script>
+        -->
+        </li>
+        <li>
+          <h2>Recents post</h2>
+          <ul>
+          
+            <li><a href="http://dwayneb.free.fr/posts/lift_recapcha/">Lift : integrate ReCaptcha</a></li>
+          
+            <li><a href="http://dwayneb.free.fr/posts/scala_testing/">Scala, choosing a test lib</a></li>
+          
+            <li><a href="http://dwayneb.free.fr/posts/scala_sugar_parametrized_factory/">Scala, sugar in Java : make a type parametrized factory</a></li>
+          
+            <li><a href="http://dwayneb.free.fr/posts/url_java_quizz_kata_etc/">URL: Java Quizz, Kata, ...</a></li>
+          
+            <li><a href="http://dwayneb.free.fr/posts/scala_sugar_in_java_accessor/">Scala, sugar in Java : no longer stupid accessor</a></li>
+          
+          </ul>
+        </li>
+        <!--li><h2>Tags</h2>
+        </li-->
+        <!-- see https://widgets.amazon.com/ -->
+        <!--li><!-- wish list -- <SCRIPT charset="utf-8" type="text/javascript" src="http://ws.amazon.com/widgets/q?ServiceVersion=20070822&MarketPlace=US&ID=V20070822/US/widgetsamazon-20/8004/7994e956-d83a-4b1a-9dc2-bfc4153948d2"> </SCRIPT> <NOSCRIPT><A HREF="http://ws.amazon.com/widgets/q?ServiceVersion=20070822&MarketPlace=US&ID=V20070822%2FUS%2Fwidgetsamazon-20%2F8004%2F7994e956-d83a-4b1a-9dc2-bfc4153948d2&Operation=NoScript">Amazon.com Widgets</A></NOSCRIPT></li-->
+        <li><img src="http://www.eclipse.org/donate/images/friendslogo160.jpg"></li>
+        </ul>
+        <!--a href="http://intensedebate.com/?badge=small_grey&user=david_bernard" title="Go to IntenseDebate"><img src="http://s.intensedebate.com/images/intensedebate-badge-small_grey.png?=3" alt="Go to IntenseDebate" /></a-->
+      </div>
+      <div id="footer">
+        <div>powered by <a href="http://nanoc.stoneship.org/">nanoc</a></div>
+        <div>last site generation : Monday September 13, 2010 at 10:58:07 CEST</div>
+      </div>
+    </div>
+  </body>
+</html>

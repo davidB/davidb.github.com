@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+  <head>
+    <title>davidB'log - Why I don't continue to use getter and setter ?</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="Generator" CONTENT="nanoc"/>
+    <meta name="Publisher" content="Alchim31"/>
+    <meta name="author" content="" />
+    <meta name="copyright" content="" />
+    <link rel="stylesheet" type="text/css" href="/assets/style/screen.css" media="screen, projection"/>
+    <link rel="stylesheet" type="text/css" href="/assets/style/print.css" media="print"/>
+    <link rel="stylesheet" type="text/css" href="/assets/style/custom.css" media="screen, projection"/>
+    <!--[if IE]>
+     <link rel="stylesheet" type="text/css" href="/assets/style/ie.css" media="screen, projection"/>
+     <script defer type="text/javascript" src="/assets/js/pngfix.js"></script>
+   <![endif]-->
+    <link rel="alternate" type="application/rss+xml" title="davidB'log" HREF="http://feeds.feedburner.com/davidB_log"/>
+    <!--link rel="alternate" type="application/atom+xml" title="davidB'log" HREF="/atom.xml"/-->
+    <meta name="robots" content="all, follow" />
+    <!--meta name="language" content="en" /-->
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-18659445-2']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>     
+  </head>
+  <body class="bp two-col">
+    <div id="container">
+      <div id="header">
+        <div class="title">davidB'log</div>
+        
+        <ul id="nav">
+          <li><a href="/">Home</a></li>
+          <li><a href="/articles/">Articles</a></li>
+          <!--li><a href="/projects/">Projects</a></li-->
+          <li><a href="/about/">About</a></li>
+        </ul>
+      </div>
+      <div id="content">
+        <h1>Why I don't continue to use getter and setter ?</h1>
+<div class="publishInfo">2006/09/19 | Published in <a href="http://technorati.com/tag/lang/java" rel="tag">lang/java</a></div>
+
+<div>
+  <div style="float: right; width: 42px; padding-right: 10px; margin: 0 0 0 10px;">
+    <script type="text/javascript">
+    <!--
+    var dzone_url = "http://dwayneb.free.fr/posts/why_i_don_t_continue_to_use_getter_and_setter/";
+    var dzone_title = "Why I don't continue to use getter and setter ?";
+    //var dzone_blurb = 'Building decent-sized applications requires layouts (unless you like pain), and the funny thing about layouts is that they&#8217;re tough&#8230;..real tough&#8230;&#8230;until you bother to actually understand them. The second funny thing about layouts...';
+    var dzone_style = '1';
+    //-->
+    </script>
+    <script language="javascript" src="http://widgets.dzone.com/widgets/zoneit.js"></script>
+  </div>
+
+  <p>It has been a long time, I’m looking for a solution to avoid the getter/setter boilerplate. I wanted a solution ready for jdk 1.5 (and if possible for jdk 1.4). And after some night (of reading, studing, try,…), I found not one solution but a combinaison of solution. <b>No need anymore to write or generate getXxxx() and setXxxx(…)</b>. I keep my code cleaner and clearer. :</p>
+<ul>
+    <li> Use public attribute as property, instead of private attribute and accessor methods.</li>
+    <li> When I use framework/lib that can't access property without get/set, I post-compile classes files with <a href="file:///home/dwayne/work/oss/getset/target/site/gasa.html">GetAndSetAdder </a>to generate basic public getter/setter on bytecode. This way, reflection based lib will continue to work. (It's a tool I wrote and publish)</li>
+    <li>If I want to add behavior when properties are accessed, I use AOP to add extra stuff before/after reading/writing attribute.</li>
+</ul>
+<p>
+Please have look at the <a href="file:///home/dwayne/work/oss/getset/target/site/faq.html">Faq</a> to understand why it's a valid solution (I apply it on EJB3/JSF project), <a href="file:///home/dwayne/work/oss/getset/target/site/introduction.html">description</a> of the problem and the solution, and also <a href="">others approaches</a> to compare with. I expect that after exploring this solution (reading documentation, faq,...), you will ask yourself : <b>"Why do we continue to use getter and setter ?"</b>
+</p>
+<p>
+Take a look at <a href="http://alchim.sf.net/getset">http://alchim.sf.net/getset</a>. Every comments are welcome.</p>
+
+</div>
+<!--
+<div class="share">
+  <script type="text/javascript" src="http://w.sharethis.com/button/sharethis.js#publisher=6e34d60c-b14e-4c19-9b2f-7c35a9f0ab09&amp;type=website&amp;linkfg=%23a4282d"></script>
+  
+</div>
+-->
+
+<script>
+var idcomments_acct = 'e3d598aebabbaf4e96c6e81e7e5d84e6';
+var idcomments_post_id;// = "/posts/why_i_don_t_continue_to_use_getter_and_setter/";
+var idcomments_post_url;// = "http://dwayneb.free.fr/posts/why_i_don_t_continue_to_use_getter_and_setter/";
+</script>
+<span id="IDCommentsPostTitle" style="display:none"></span>
+<script type='text/javascript' src='http://www.intensedebate.com/js/genericCommentWrapperV2.js'></script>
+<!--script type="text/javascript" src="http://www.intensedebate.com/js/genericLinkWrapperV2.js"></script-->
+
+      </div>
+      <div id="sidebar">
+      <!--<img src="http://www.gravatar.com/avatar/1600be0eb76f419febc4184716300d63.png"/>-->
+      <ul>
+        <!--TODO li>search form</li-->
+        <li><a href="http://feeds.feedburner.com/davidB_log" type="application/rss+xml" rel="alternate"><img src="/assets/images/feed.png" alt="#">RSS Feed</a>
+        <li><div id="google_translate_element"></div><script>
+          function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+              pageLanguage: 'en',
+              multilanguagePage: true
+            }, 'google_translate_element');
+          }
+          </script><script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+        </li>
+        <li>
+        <h2>Author</h2>
+        I'm a Java/Scala Freelance Developper...
+        <ul>
+        <li><a href="http://alchim31.net">Company : Alchim31</a></li>
+        <!--li><a href="/projects/">Projects</a></li-->
+        <li><a href="http://fr.linkedin.com/in/davidbernard31" ><img src="http://www.linkedin.com/img/webpromo/btn_viewmy_160x25.png" width="160" height="25" border="0" alt="View David Bernard's profile on LinkedIn"></a></li>
+        <!-- see https://www.ohloh.net/accounts/david_bernard_31/widgets -->
+        <!--li><a href='https://www.ohloh.net/accounts/71405?ref=Detailed'><img alt='Ohloh profile for david_bernard_31' height='35' src='https://www.ohloh.net/accounts/71405/widgets/account_detailed.gif' width='160' /></a></li-->
+        </ul>
+        <!-- see http://drnicjavascript.rubyforge.org/github_badge/ -->
+        <div id="github-badge"></div>
+        <!--
+        <script type="text/javascript" charset="utf-8">
+          GITHUB_USERNAME="davidB";
+        </script>
+        <script src="http://drnic.github.com/github-badges/dist/github-badge-launcher.js" type="text/javascript"></script>
+        -->
+        </li>
+        <li>
+          <h2>Recents post</h2>
+          <ul>
+          
+            <li><a href="http://dwayneb.free.fr/posts/lift_recapcha/">Lift : integrate ReCaptcha</a></li>
+          
+            <li><a href="http://dwayneb.free.fr/posts/scala_testing/">Scala, choosing a test lib</a></li>
+          
+            <li><a href="http://dwayneb.free.fr/posts/scala_sugar_parametrized_factory/">Scala, sugar in Java : make a type parametrized factory</a></li>
+          
+            <li><a href="http://dwayneb.free.fr/posts/url_java_quizz_kata_etc/">URL: Java Quizz, Kata, ...</a></li>
+          
+            <li><a href="http://dwayneb.free.fr/posts/scala_sugar_in_java_accessor/">Scala, sugar in Java : no longer stupid accessor</a></li>
+          
+          </ul>
+        </li>
+        <!--li><h2>Tags</h2>
+        </li-->
+        <!-- see https://widgets.amazon.com/ -->
+        <!--li><!-- wish list -- <SCRIPT charset="utf-8" type="text/javascript" src="http://ws.amazon.com/widgets/q?ServiceVersion=20070822&MarketPlace=US&ID=V20070822/US/widgetsamazon-20/8004/7994e956-d83a-4b1a-9dc2-bfc4153948d2"> </SCRIPT> <NOSCRIPT><A HREF="http://ws.amazon.com/widgets/q?ServiceVersion=20070822&MarketPlace=US&ID=V20070822%2FUS%2Fwidgetsamazon-20%2F8004%2F7994e956-d83a-4b1a-9dc2-bfc4153948d2&Operation=NoScript">Amazon.com Widgets</A></NOSCRIPT></li-->
+        <li><img src="http://www.eclipse.org/donate/images/friendslogo160.jpg"></li>
+        </ul>
+        <!--a href="http://intensedebate.com/?badge=small_grey&user=david_bernard" title="Go to IntenseDebate"><img src="http://s.intensedebate.com/images/intensedebate-badge-small_grey.png?=3" alt="Go to IntenseDebate" /></a-->
+      </div>
+      <div id="footer">
+        <div>powered by <a href="http://nanoc.stoneship.org/">nanoc</a></div>
+        <div>last site generation : Monday September 13, 2010 at 10:55:50 CEST</div>
+      </div>
+    </div>
+  </body>
+</html>

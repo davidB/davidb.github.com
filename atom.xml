@@ -1,0 +1,320 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>http://dwayneb.free.fr/</id>
+  <title>davidB'log</title>
+  <updated>2010-10-07T22:00:00Z</updated>
+  <link rel="alternate" href="http://dwayneb.free.fr/"/>
+  <link rel="self" href="http://dwayneb.free.fr/atom.xml"/>
+  <author>
+    <name>David Bernard</name>
+    <uri>http://fr.linkedin.com/in/davidbernard31</uri>
+  </author>
+  <entry>
+    <id>tag:dwayneb.free.fr,2010-10-08:/posts/lift_recapcha/</id>
+    <title type="html">Lift : integrate ReCaptcha</title>
+    <published>2010-10-07T22:00:00Z</published>
+    <updated>2010-10-07T22:00:00Z</updated>
+    <link rel="alternate" href="http://dwayneb.free.fr/posts/lift_recapcha/"/>
+    <content type="html">&lt;p&gt;I put code and instructions to integrate &lt;a href="http://www.google.com/recaptcha"&gt;ReCaptcha&lt;/a&gt; with &lt;a href="http://liftweb.net"&gt;Lift&lt;/a&gt; into a gist (my first)&lt;/p&gt;
+
+&lt;script src="http://gist.github.com/616482.js"&gt; &lt;/script&gt;
+
+</content>
+  </entry>
+  <entry>
+    <id>tag:dwayneb.free.fr,2010-09-29:/posts/scala_testing/</id>
+    <title type="html">Scala, choosing a test lib</title>
+    <published>2010-09-28T22:00:00Z</published>
+    <updated>2010-09-28T22:00:00Z</updated>
+    <link rel="alternate" href="http://dwayneb.free.fr/posts/scala_testing/"/>
+    <content type="html">&lt;p&gt;I note here, (partial) results for my testing tool research/evaluation.&lt;/p&gt;
+
+&lt;p&gt;Features :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;required
+    &lt;ul&gt;
+      &lt;li&gt;run for maven&lt;/li&gt;
+      &lt;li&gt;run from Eclipse via shortcut, without : Alt+Shift+X [S|T|N|any]&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;I would like
+    &lt;ul&gt;
+      &lt;li&gt;support single before/after for set of test (run once, eg : start/stop backend connection)&lt;/li&gt;
+      &lt;li&gt;ability to use &lt;a href="http://code.google.com/p/scalacheck/"&gt;ScalaCheck&lt;/a&gt; to generate a set of test&lt;/li&gt;
+      &lt;li&gt;nice assertion syntax (support scala type)&lt;/li&gt;
+      &lt;li&gt;support for skip/pending test&lt;/li&gt;
+      &lt;li&gt;to have less dependencies (jar) ass possible&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I create a sample project to try test/bdd lib : &lt;a href="http://github.com/davidB/prj-scala-only/"&gt;prj-scala-only&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;To run test under eclipse, I follow the rules :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;to be able to run test the project have to compile (fully), &lt;strong&gt;required&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;name the file same as test class (and package sould match directory layout)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To run test under maven : &lt;code&gt;mvn test&lt;/code&gt; :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;end filename with Test (or Suite =&amp;gt; require custom configuration)&lt;/li&gt;
+  &lt;li&gt;If testng jar is in the classpath, then &lt;a href="http://maven.apache.org/surefire/maven-surefire-plugin"&gt;surefire&lt;/a&gt; (the maven plugin that run test) only run testng file, so in the final project I comment TestNG dependencies and test using it&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href="http://junit.org/"&gt;JUnit&lt;/a&gt; 3/4 :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;img alt=":-)" src="/assets/images/icons/greenled.png" /&gt;  Maven :&lt;/li&gt;
+  &lt;li&gt;&lt;img alt=":-)" src="/assets/images/icons/greenled.png" /&gt; Eclipse : via JUnit Runner Plugin&lt;/li&gt;
+  &lt;li&gt;&lt;img alt=":-|" src="/assets/images/icons/yellowled.png" /&gt; before/after : only on static method, not scala firendly (need to declare an object)&lt;/li&gt;
+  &lt;li&gt;&lt;img alt=":-(" src="/assets/images/icons/redled.png" /&gt; scalacheck :&lt;/li&gt;
+  &lt;li&gt;&lt;img alt=":-)" src="/assets/images/icons/greenled.png" /&gt; assert syntax : via mix of SpecsMatchers or org.scalatest.Assertions, or ShouldMatchersForJUnit,&#8230;&lt;/li&gt;
+  &lt;li&gt;&lt;img alt=":-(" src="/assets/images/icons/redled.png" /&gt; skip support  : not found how to&lt;/li&gt;
+  &lt;li&gt;my sample code :
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="http://github.com/davidB/prj-scala-only/tree/master/src/test/scala/samples/JUnitExtendSampleTest.scala"&gt;JUnitExtendSampleTest&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="http://github.com/davidB/prj-scala-only/tree/master/src/test/scala/samples/JUnitAnnotSampleTest.scala"&gt;JUnitAnnotSampleTest&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href="http://testng.org/"&gt;TestNG&lt;/a&gt; :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;img alt=":-)" src="/assets/images/icons/greenled.png" /&gt; Maven :&lt;/li&gt;
+  &lt;li&gt;&lt;img alt=":-)" src="/assets/images/icons/greenled.png" /&gt; Eclipse : via TestNG Runner Plugin&lt;/li&gt;
+  &lt;li&gt;&lt;img alt=":-)" src="/assets/images/icons/greenled.png" /&gt; before/after : &lt;/li&gt;
+  &lt;li&gt;&lt;img alt=":-(" src="/assets/images/icons/redled.png" /&gt; scalacheck :&lt;/li&gt;
+  &lt;li&gt;&lt;img alt=":-)" src="/assets/images/icons/greenled.png" /&gt; assert syntax : idem JUnit&lt;/li&gt;
+  &lt;li&gt;&lt;img alt=":-)" src="/assets/images/icons/greenled.png" /&gt; skip support  : via beforeXxx, or annotation, or test dependency chain&lt;/li&gt;
+  &lt;li&gt;my sample code :
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="http://github.com/davidB/prj-scala-only/tree/master/src/test/scala/samples/TestNGSampleTest.scala.off"&gt;TestNGSampleTest&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href="http://code.google.com/p/specs/"&gt;Specs&lt;/a&gt; :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;img alt=":-)" src="/assets/images/icons/greenled.png" /&gt; Maven : extends SpecificationWithJUnit, or mix with JUnit (see doc, or sample linked below)&lt;/li&gt;
+  &lt;li&gt;&lt;img alt=":-|" src="/assets/images/icons/yellowled.png" /&gt; Eclipse : I can&#8217;t run Specs via JUnit Runner Plugin, or as scala application if I follow Specs&#8217; documentation, But works if I use @RunWith&lt;/li&gt;
+  &lt;li&gt;&lt;img alt=":-)" src="/assets/images/icons/greenled.png" /&gt; before/after :&lt;/li&gt;
+  &lt;li&gt;&lt;img alt=":-)" src="/assets/images/icons/greenled.png" /&gt; scalacheck :&lt;/li&gt;
+  &lt;li&gt;&lt;img alt=":-)" src="/assets/images/icons/greenled.png" /&gt; assert syntax :&lt;/li&gt;
+  &lt;li&gt;&lt;img alt=":-)" src="/assets/images/icons/greenled.png" /&gt; skip support  :&lt;/li&gt;
+  &lt;li&gt;my sample code :
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="http://github.com/davidB/prj-scala-only/tree/master/src/test/scala/samples/SpecsSampleTest.scala"&gt;SpecsSampleTest&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;documentation of the site as grow with version, may be, a little clean up should be done. &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;a href="http://scalatest.org/"&gt;ScalaTest&lt;/a&gt; :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;img alt=":-)" src="/assets/images/icons/greenled.png" /&gt; Maven : extends JUnitSuite, or use @RunWith, or extends TestNGSuite&lt;/li&gt;
+  &lt;li&gt;&lt;img alt=":-)" src="/assets/images/icons/greenled.png" /&gt; Eclipse : via JUnit Runner Plugin&lt;/li&gt;
+  &lt;li&gt;&lt;img alt=":-)" src="/assets/images/icons/greenled.png" /&gt; before/after : via trait BeforeAndAfterAll/FixtureSuite, but not as friendly (IMO) as TestNG (failure in before =&amp;gt; skipped test and not an error that stop every test)&lt;/li&gt;
+  &lt;li&gt;&lt;img alt=":-)" src="/assets/images/icons/greenled.png" /&gt; scalacheck : detect pass/fail with JUnitSuite&lt;/li&gt;
+  &lt;li&gt;&lt;img alt=":-)" src="/assets/images/icons/greenled.png" /&gt; assert syntax : several syntaxes&lt;/li&gt;
+  &lt;li&gt;&lt;img alt=":-|" src="/assets/images/icons/yellowled.png" /&gt; skip support  : a pending are converted into failure for JUnitSuite and TestNGSuite, but are ignored in FunSuite&lt;/li&gt;
+  &lt;li&gt;my sample code :
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="http://github.com/davidB/prj-scala-only/tree/master/src/test/scala/samples/ScalaTestJUnitSuite.scala"&gt;ScalaTestJUnitSuite&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="http://github.com/davidB/prj-scala-only/tree/master/src/test/scala/samples/ScalaTestTestNGSuite.scala.off"&gt;ScalaTestTestNGSuite&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="http://github.com/davidB/prj-scala-only/tree/master/src/test/scala/samples/ScalaTestFunSuite.scala"&gt;ScalaTestFunSuite&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;The documentation is in the scaladoc&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I stop here, my evaluation. But If you&#8217;re interested to continue, there is other solution like &lt;a href="http://github.com/orfjackal/specsy"&gt;Specsy&lt;/a&gt;, assert from &lt;a href="http://code.google.com/p/scalaz/"&gt;Scalaz&lt;/a&gt;,&#8230;&lt;/p&gt;
+
+&lt;p&gt;Conclusion : &lt;/p&gt;
+
+&lt;p&gt;I started this comparison because I was not able to use Specs under Eclipse, and to eval alternative. But at the end of the eval I found how to run Specs under eclipse.
+And I don&#8217;t like a lot the too many syntax of ScalaTest (Error when before failed).
+So currently, I&#8217;ll continue to use Specs.&lt;/p&gt;
+
+&lt;p&gt;I hope my feedback could help you.&lt;/p&gt;
+
+</content>
+  </entry>
+  <entry>
+    <id>tag:dwayneb.free.fr,2010-09-14:/posts/scala_sugar_parametrized_factory/</id>
+    <title type="html">Scala, sugar in Java : make a type parametrized factory</title>
+    <published>2010-09-13T22:00:00Z</published>
+    <updated>2010-09-13T22:00:00Z</updated>
+    <link rel="alternate" href="http://dwayneb.free.fr/posts/scala_sugar_parametrized_factory/"/>
+    <content type="html">&lt;p&gt;The basic code to create an instance from a Type parameter :&lt;/p&gt;
+
+&lt;p&gt;(full &lt;a href="http://github.com/davidB/scala_sugar_in_java/tree/master/src/main/scala/sandbox_sugar/"&gt;source on github&lt;/a&gt; )&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// Scala
+
+  def newOne[T]()(implicit m: Manifest[T]): T = {
+    // assume T as a no-args constructor
+    m.erasure.newInstance().asInstanceOf[T]
+  }
+
+// sample call
+  val v = newOne[String]()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;// Java
+
+  public &amp;lt;T&amp;gt; T newOne(Class&amp;lt;T&amp;gt; clazz) {
+    return clazz.newInstance();
+  }
+  
+// sample call from java
+  String v = newOne(String.class);
+  
+// sample call from scala
+  val v = newOne(classOf[String])
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+  </entry>
+  <entry>
+    <id>tag:dwayneb.free.fr,2010-09-13:/posts/url_java_quizz_kata_etc/</id>
+    <title type="html">URL: Java Quizz, Kata, ...</title>
+    <published>2010-09-12T22:00:00Z</published>
+    <updated>2010-09-12T22:00:00Z</updated>
+    <link rel="alternate" href="http://dwayneb.free.fr/posts/url_java_quizz_kata_etc/"/>
+    <content type="html">&lt;p&gt;Je me rappelle un pass&#233;, o&#249; je m&#8217;amusai &#224; passer les Quizz de javasoft.
+Si vous voulez approfondir vos connaissances en java et les tester :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="http://www.javaspecialists.eu/"&gt;The Java Specialists&lt;/a&gt; : articles, newsletters, cours, examen&lt;/li&gt;
+  &lt;li&gt;&lt;a href="http://thecodersbreakfast.net/index.php?category/Java-JEE/Quizs-Techniques"&gt;The Coders Breakfast&lt;/a&gt; : Le blog d&#8217;un javaSpecialists avec des Quizz&lt;/li&gt;
+  &lt;li&gt;&lt;a href="http://www.blackbeltfactory.com/ui#!TopicList"&gt;Blackbelt Factory&lt;/a&gt; : pour passer sa ceinture noir en java&lt;/li&gt;
+  &lt;li&gt;&lt;a href="http://blog.excilys.com/2010/08/24/la-scjp-cest-pas-de-la-menthe-a-leau/"&gt;La SCJP, c&#8217;est pas de la menthe &#224; l&#8217;eau&lt;/a&gt; un article qui explique comment se preparer pour preparer la certification SCJP / OCJP&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;En un peu moins de bachotage et un peu plus pratique, les Kata (comme dans les arts martiaux) :&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="http://codekata.pragprog.com/"&gt;CodeKata&lt;/a&gt;, a adapter a votre language (Java, &#8230;)&lt;/li&gt;
+  &lt;li&gt;&lt;a href="http://codingkata.org/"&gt;Coding Kata&lt;/a&gt; plus Java oriented&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
+  <entry>
+    <id>tag:dwayneb.free.fr,2010-09-12:/posts/scala_sugar_in_java_accessor/</id>
+    <title type="html">Scala, sugar in Java : no longer stupid accessor</title>
+    <published>2010-09-11T22:00:00Z</published>
+    <updated>2010-09-11T22:00:00Z</updated>
+    <link rel="alternate" href="http://dwayneb.free.fr/posts/scala_sugar_in_java_accessor/"/>
+    <content type="html">&lt;p&gt;Below I provide the same class in Java and in Scala.
+The scala class is longer because there @BeanProperty annotation to generate getter and setter (useless in scala).
+You could also use the @BeanInfo annotation to generate BeanInfo (see &lt;a href="http://scala.sygneca.com/code/defining-bean-properties"&gt;Defining a BeanProperty&lt;/a&gt; ).&lt;/p&gt;
+
+&lt;p&gt;(full &lt;a href="http://github.com/davidB/scala_sugar_in_java/tree/master/src/main/scala/sandbox_sugar/"&gt;source on github&lt;/a&gt; )&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;// Scala
+import scala.reflect.{BeanProperty, BeanInfo}
+
+// use @BeanProperty only if you need to integrate with a java framework that require getter/setter (getXxxx/setXxxx)
+case class MyScalaStructA(@BeanProperty name : String, @BeanProperty var age : Int)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;// Java
+
+class MyJavaStructA {
+  private final String _name;
+  private int _age;
+  
+  // code below generated by IDE (several clicks)
+  // need to edit code below if we'll add/remove field
+
+  public MyJavaStructA(String name, int age) {
+    this._name = name;
+    this._age = age;
+  }
+
+  public int getAge() {
+    return _age;
+  }
+
+  public void setAge(int age) {
+    this._age = age;
+  }
+
+  public String getName() {
+    return _name;
+  }
+
+  @Override
+  public String toString() {
+    return &amp;quot;MyJavaStructA [_name=&amp;quot; + _name + &amp;quot;, _age=&amp;quot; + _age + &amp;quot;]&amp;quot;;
+  }
+
+  @Override
+  public int hashCode() {
+    final int prime = 31;
+    int result = 1;
+    result = prime * result + _age;
+    result = prime * result + ((_name == null) ? 0 : _name.hashCode());
+    return result;
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null)
+      return false;
+    if (getClass() != obj.getClass())
+      return false;
+    MyJavaStructA other = (MyJavaStructA) obj;
+    if (_age != other._age)
+      return false;
+    if (_name == null) {
+      if (other._name != null)
+        return false;
+    } else if (!_name.equals(other._name))
+      return false;
+    return true;
+  }
+  
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I also provide a test case for the scala structure to show the usage.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;  @Test
+  def testMyScalaStructA() {
+    val a = MyScalaStructA((&amp;quot;A&amp;quot; + 'b').toUpperCase, 30)
+    
+    assertEquals(&amp;quot;AB&amp;quot;, a.name)
+    assertTrue(&amp;quot;AB&amp;quot; == a.name) //in scala == call equals method
+    assertFalse(a.name eq &amp;quot;AB&amp;quot;)
+    assertEquals(&amp;quot;AB&amp;quot;, a.getName())
+    // a.name = &amp;quot;foo&amp;quot; // read-only =&amp;gt; doesn't compile
+    //a.setName(&amp;quot;foo&amp;quot;) // read-only =&amp;gt; doesn't compile
+    
+    assertEquals(30, a.age)
+    a.age = a.age + 1
+    assertEquals(31, a.age)
+    a.setAge(a.getAge + 1)
+    assertEquals(32, a.age)
+
+    // readable default toString generated
+    assertEquals(&amp;quot;MyScalaStructA(AB,32)&amp;quot;, a.toString)
+
+    // equals on field generated
+    assertEquals(MyScalaStructA(&amp;quot;AB&amp;quot;,32), a)
+    assertTrue(MyScalaStructA(&amp;quot;AB&amp;quot;,32) == a)
+    assertEquals(MyScalaStructA(&amp;quot;AB&amp;quot;,32).hashCode, a.hashCode)
+  }
+&lt;/code&gt;&lt;/pre&gt;
+</content>
+  </entry>
+</feed>
