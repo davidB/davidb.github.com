@@ -14,14 +14,14 @@
         --fg: #1a1a1a;
         --fg-muted: #595959;
         --bg: #ffffff;
-        --accent: #2a6df4;
+        --accent: #406496;
       }
       @media (prefers-color-scheme: dark) {
         :root {
           --fg: #e8e8e8;
           --fg-muted: #a3a3a3;
           --bg: #111214;
-          --accent: #6ea8fe;
+          --accent: #97b2d8;
         }
       }
       * {
@@ -71,13 +71,47 @@
       a {
         color: var(--accent);
         text-decoration: underline;
-        text-underline-offset: 0.15em;
+        text-decoration-thickness: 1px;
+        text-decoration-color: color-mix(in srgb, var(--accent) 45%, transparent);
+        text-underline-offset: 0.2em;
+      }
+      a:hover,
+      a:focus-visible {
+        text-decoration-color: var(--accent);
       }
       .desc {
         color: var(--fg-muted);
       }
+      .elsewhere ul {
+        display: flex;
+        gap: 1.25rem;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .elsewhere li {
+        margin: 0;
+      }
       .elsewhere a {
-        margin-right: 0.75rem;
+        display: inline-flex;
+        color: var(--fg-muted);
+        text-decoration: none;
+      }
+      .elsewhere a:hover,
+      .elsewhere a:focus-visible {
+        color: var(--accent);
+      }
+      .elsewhere svg {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip: rect(0 0 0 0);
+        white-space: nowrap;
       }
     </style>
   </head>
@@ -161,13 +195,38 @@
 
     <section class="elsewhere">
       <h2>Elsewhere</h2>
-      <p>
-        <a href="https://github.com/davidB">GitHub</a>
-        <a href="https://www.youtube.com/@DavidBernard31">YouTube</a>
-        <a href="https://bsky.app/profile/auryo31.bsky.social">Bluesky</a>
-        <a href="https://dev.to/davidb31">dev.to</a>
-        <a href="https://www.linkedin.com/in/davidbernard31">LinkedIn</a>
-      </p>
+      <ul>
+        <li>
+          <a href="https://github.com/davidB"
+            ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 .297c-6.63 0-12 5.373-12 12c0 5.303 3.438 9.8 8.205 11.385c.6.113.82-.258.82-.577c0-.285-.01-1.04-.015-2.04c-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729c1.205.084 1.838 1.236 1.838 1.236c1.07 1.835 2.809 1.305 3.495.998c.108-.776.417-1.305.76-1.605c-2.665-.3-5.466-1.332-5.466-5.93c0-1.31.465-2.38 1.235-3.22c-.135-.303-.54-1.523.105-3.176c0 0 1.005-.322 3.3 1.23c.96-.267 1.98-.399 3-.405c1.02.006 2.04.138 3 .405c2.28-1.552 3.285-1.23 3.285-1.23c.645 1.653.24 2.873.12 3.176c.765.84 1.23 1.91 1.23 3.22c0 4.61-2.805 5.625-5.475 5.92c.42.36.81 1.096.81 2.22c0 1.606-.015 2.896-.015 3.286c0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg
+            ><span class="sr-only">GitHub</span></a
+          >
+        </li>
+        <li>
+          <a href="https://www.youtube.com/@DavidBernard31"
+            ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M23.498 6.186a3.02 3.02 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.02 3.02 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.02 3.02 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.02 3.02 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814M9.545 15.568V8.432L15.818 12z"/></svg
+            ><span class="sr-only">YouTube</span></a
+          >
+        </li>
+        <li>
+          <a href="https://bsky.app/profile/auryo31.bsky.social"
+            ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M5.202 2.857C7.954 4.922 10.913 9.11 12 11.358c1.087-2.247 4.046-6.436 6.798-8.501C20.783 1.366 24 .213 24 3.883c0 .732-.42 6.156-.667 7.037c-.856 3.061-3.978 3.842-6.755 3.37c4.854.826 6.089 3.562 3.422 6.299c-5.065 5.196-7.28-1.304-7.847-2.97c-.104-.305-.152-.448-.153-.327c0-.121-.05.022-.153.327c-.568 1.666-2.782 8.166-7.847 2.97c-2.667-2.737-1.432-5.473 3.422-6.3c-2.777.473-5.899-.308-6.755-3.369C.42 10.04 0 4.615 0 3.883c0-3.67 3.217-2.517 5.202-1.026"/></svg
+            ><span class="sr-only">Bluesky</span></a
+          >
+        </li>
+        <li>
+          <a href="https://dev.to/davidb31"
+            ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7.42 10.05c-.18-.16-.46-.23-.84-.23H6l.02 2.44l.04 2.45l.56-.02c.41 0 .63-.07.83-.26c.24-.24.26-.36.26-2.2c0-1.91-.02-1.96-.29-2.18M0 4.94v14.12h24V4.94zM8.56 15.3c-.44.58-1.06.77-2.53.77H4.71V8.53h1.4c1.67 0 2.16.18 2.6.9c.27.43.29.6.32 2.57c.05 2.23-.02 2.73-.47 3.3m5.09-5.47h-2.47v1.77h1.52v1.28l-.72.04l-.75.03v1.77l1.22.03l1.2.04v1.28h-1.6c-1.53 0-1.6-.01-1.87-.3l-.3-.28v-3.16c0-3.02.01-3.18.25-3.48c.23-.31.25-.31 1.88-.31h1.64v1.3zm4.68 5.45c-.17.43-.64.79-1 .79c-.18 0-.45-.15-.67-.39c-.32-.32-.45-.63-.82-2.08l-.9-3.39l-.45-1.67h.76c.4 0 .75.02.75.05c0 .06 1.16 4.54 1.26 4.83c.04.15.32-.7.73-2.3l.66-2.52l.74-.04c.4-.02.73 0 .73.04c0 .14-1.67 6.38-1.8 6.68z"/></svg
+            ><span class="sr-only">dev.to</span></a
+          >
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/in/davidbernard31"
+            ><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037c-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85c3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.06 2.06 0 0 1-2.063-2.065a2.064 2.064 0 1 1 2.063 2.065m1.782 13.019H3.555V9h3.564zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/></svg
+            ><span class="sr-only">LinkedIn</span></a
+          >
+        </li>
+      </ul>
     </section>
   </body>
 </html>
